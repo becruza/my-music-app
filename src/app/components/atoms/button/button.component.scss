@@ -1,0 +1,20 @@
+@import "../../../../styles/variables.scss";
+
+.a-button {
+  padding: 5px 10px;
+  font-size: 1em;
+  border: $white solid 2px;
+  border-radius: 10px;
+  background-color: $black;
+  color: $white;
+
+  &:hover {
+    border-color: $spotify-green;
+    color: $spotify-green;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
