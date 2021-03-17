@@ -1,0 +1,46 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.playlists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10%;
+
+  .playlists__title {
+    font-family: $righteous;
+    color: $white;
+    @include min($medium) {
+      font-size: 3em;
+    }
+  }
+
+  .playlists__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include min($s-medium) {
+      justify-content: space-between;
+      align-content: center;
+    }
+
+    & > * {
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      @include min($s-medium) {
+        font-size: 1em;
+        width: 47%;
+      }
+      @include min($medium) {
+        font-size: 1.5em;
+      }
+      @include min($large) {
+        width: 31%;
+      }
+      @include min($xx-large) {
+        width: 23%;
+      }
+    }
+  }
+}

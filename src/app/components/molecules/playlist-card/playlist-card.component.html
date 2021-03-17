@@ -1,0 +1,16 @@
+<div *ngIf="playlistData" class="m-playlist-card">
+  <img
+    *ngIf="playlistData.imageUrl"
+    [src]="playlistData.imageUrl"
+    alt="playlist-cover"
+    class="m-playlist-card__img"
+  />
+  <div *ngIf="!playlistData.imageUrl" class="m-playlist-card__no-img">
+    <app-logo></app-logo>
+  </div>
+  <p class="m-playlist-card__name">{{ playlistData.name }}</p>
+  <p class="m-playlist-card__description">{{ playlistData.description }}</p>
+  <p class="m-playlist-card__total">
+    <span>Songs: </span>{{ playlistData.songsTotal }}
+  </p>
+</div>

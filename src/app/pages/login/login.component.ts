@@ -10,33 +10,36 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class LoginComponent implements OnInit {
   constructor(
     private spotifyService: SpotifyService,
-    // private router: Router,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    console.log('2 veces');
-
     if (this.spotifyService.isLogedIn()) {
-      //TODO redirect to home page
-      console.log('Logged In');
-      return;
+      this.router.navigate(['/playlists']);
     }
+    this.logIn();
+  }
 
+  logIn(): void {
     this.route.queryParamMap.subscribe((params) => {
       if (params.get('code')) {
-        this.spotifyService
-          .getTokens(params.get('code')!)
-          .subscribe((tokens) => {
+        this.spotifyService.getTokens(params.get('code')!).subscribe(
+          (tokens) => {
             this.spotifyService.storeTokens(tokens);
-            // location.reload();
-          });
+            this.router.navigate(['/playlists']);
+          },
+          (error) => {
+            console.error(error);
+            // TODO implements error message
+          }
+        );
       }
     });
   }
 
   spotifyLogin(): void {
-    const url = this.spotifyService.generateURL();
+    const url = this.spotifyService.generateAuthURL();
     window.location.href = url;
   }
 }

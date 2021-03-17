@@ -30,13 +30,4 @@ describe('HomeComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  // it('should store tokens in localstorage', () => {
-  //   expect(localStorage.getItem('access_token')).toBe('test-access-token');
-  //   expect(localStorage.getItem('refresh_token')).toBe('test-refresh-token');
-  // });
 });
