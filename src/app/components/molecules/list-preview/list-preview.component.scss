@@ -1,0 +1,125 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss";
+
+.m-list-preview {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  font-family: $righteous;
+  align-items: center;
+  justify-items: center;
+
+  .m-list-preview__img {
+    grid-column: 1/13;
+    padding: 0 15%;
+    width: 70%;
+    margin: 20px 0 10px;
+    max-width: 330px;
+    @include min($s-medium) {
+      width: 80%;
+      padding: 0 10%;
+    }
+    @include min($medium) {
+      grid-column: 1/6;
+      grid-row: 1/4;
+      align-self: center;
+    }
+  }
+
+  .m-list-preview__no-img {
+    grid-column: 1/13;
+    padding: 5% 15%;
+    width: 70%;
+    background-color: $dark-gray;
+    font-size: 2.5em;
+    margin: 0 0 10px;
+    max-width: 330px;
+    @include min($small) {
+      font-size: 3em;
+    }
+    @include min($s-medium) {
+      font-size: 3.5em;
+    }
+    @include min($medium) {
+      grid-column: 1/6;
+      grid-row: 1/4;
+      align-self: center;
+      padding: 5% 0;
+      width: 90%;
+      margin: 5%;
+    }
+  }
+
+  .m-list-preview__name {
+    grid-column: 1/13;
+    margin: 0 0 10px;
+    @include min($s-medium) {
+      font-size: 2.5em;
+    }
+    @include min($medium) {
+      grid-column: 6/13;
+    }
+    @include min($x-large) {
+      font-size: calc(2em * 1.5);
+    }
+  }
+
+  .m-list-preview__description {
+    grid-column: 1/13;
+    font-size: 1.4em;
+    color: $light-gray;
+    margin: 0 0 10px;
+    @include min($s-medium) {
+      font-size: calc(1.4em * 1.25);
+    }
+    @include min($medium) {
+      grid-column: 6/13;
+    }
+    @include min($x-large) {
+      font-size: calc(1.4em * 1.5);
+    }
+  }
+
+  .m-list-preview__total-tracks {
+    grid-column: 1/7;
+
+    @include min($s-medium) {
+      font-size: 1.25em;
+    }
+    @include min($medium) {
+      grid-column: 6/9;
+    }
+    @include min($x-large) {
+      font-size: 1.5em;
+    }
+    span {
+      color: $light-gray;
+    }
+  }
+
+  .m-list-preview__spotify-link {
+    grid-column: 7/13;
+    text-decoration: none;
+    font-size: 0.8em;
+    color: $white;
+    align-self: center;
+    text-align: end;
+
+    @include min($s-medium) {
+      font-size: calc(0.8em * 1.25);
+    }
+    @include min($medium) {
+      grid-column: 9/13;
+    }
+    @include min($x-large) {
+      font-size: calc(0.8em * 1.5);
+    }
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: $spotify-green;
+    }
+  }
+}

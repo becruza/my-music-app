@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.spotifyService.isLogedIn()) {
-      this.router.navigate(['/playlists']);
+      this.router.navigate(['/home']);
     }
     this.logIn();
   }
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         this.spotifyService.getTokens(params.get('code')!).subscribe(
           (tokens) => {
             this.spotifyService.storeTokens(tokens);
-            this.router.navigate(['/playlists']);
+            window.location.href = '/home';
           },
           (error) => {
             console.error(error);

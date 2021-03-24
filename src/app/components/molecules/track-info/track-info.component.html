@@ -1,0 +1,36 @@
+<div *ngIf="track" class="m-track-info">
+  <div class="m-track-info__play-spotify">
+    <a *ngIf="track.spotifyWeb" [href]="track.spotifyWeb" target="_blank"
+      ><img src="../../../../assets/play-button.svg" alt="Play"
+    /></a>
+  </div>
+  <p class="m-track-info__name">
+    {{ track.name }}
+    <span
+      *ngIf="track.id"
+      (click)="saveToFavorites(track.id)"
+      class="m-track-info__favorite"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"
+        />
+      </svg>
+    </span>
+  </p>
+  <p *ngIf="track.artists" class="m-track-info__artists">
+    {{ track.artists.join(", ") }}
+  </p>
+  <p *ngIf="!track.artists" class="m-track-info__artists">Artists</p>
+  <p class="m-track-info__album">{{ track.album }}</p>
+  <p *ngIf="track.addedAt" class="m-track-info__added-at">
+    {{ track.addedAt | date: "short" }}
+  </p>
+  <p *ngIf="!track.addedAt" class="m-track-info__added-at">Added At</p>
+  <p class="m-track-info__duration">{{ track.duration }}</p>
+</div>

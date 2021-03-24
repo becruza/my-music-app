@@ -4,6 +4,7 @@
     <app-playlist-card
       *ngFor="let playlist of playlists"
       [playlistData]="playlist"
+      [routerLink]="[playlist.id]"
     ></app-playlist-card>
   </div>
 </section>

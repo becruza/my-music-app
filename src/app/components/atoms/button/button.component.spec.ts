@@ -20,8 +20,4 @@ describe('ButtonComponent', () => {
     buttonElement = fixture.nativeElement.querySelector('button.a-button');
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

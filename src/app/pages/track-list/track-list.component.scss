@@ -1,0 +1,36 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.track-list {
+  color: white;
+  padding: 100px 10%;
+  @include min($x-large) {
+    padding: 100px 8%;
+  }
+
+  .track-list__playlist-preview {
+    margin-bottom: 40px;
+  }
+  .track-list__track-header {
+    padding: 10px 0;
+    background-color: $gray;
+  }
+  .track-list__track-info:hover {
+    background-color: $gray;
+  }
+
+  .track-list__track-header,
+  .track-list__track-info {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    @include min($s-medium) {
+      font-size: 1.25em;
+    }
+    @include min($xx-large) {
+      font-size: 1.5em;
+    }
+    @include min($xxx-large) {
+      font-size: 1.7em;
+    }
+  }
+}

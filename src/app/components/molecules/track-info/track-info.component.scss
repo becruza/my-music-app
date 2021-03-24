@@ -1,0 +1,87 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+
+.m-track-info {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 5px;
+  align-items: center;
+  font-family: $righteous;
+  font-size: 1em;
+  @include min($medium) {
+    gap: 10px;
+  }
+
+  .m-track-info__play-spotify {
+    grid-column: 1/2;
+    img {
+      width: 80%;
+      max-width: 40px;
+    }
+  }
+
+  .m-track-info__name {
+    margin: 0;
+    grid-column: 3/10;
+    @include min($s-medium) {
+      grid-column: 3/7;
+    }
+    @include min($large) {
+      grid-column: 2/5;
+    }
+    @include min($xxx-large) {
+      grid-column: 2/4;
+    }
+  }
+
+  .m-track-info__favorite {
+    fill: red;
+  }
+  .m-track-info__artists {
+    margin: 0;
+    display: none;
+    @include min($s-medium) {
+      display: unset;
+      grid-column: 7/11;
+    }
+    @include min($large) {
+      grid-column: 5/8;
+    }
+    @include min($xxx-large) {
+      grid-column: 4/7;
+    }
+  }
+
+  .m-track-info__album {
+    margin: 0;
+    display: none;
+    @include min($large) {
+      display: unset;
+      grid-column: 8/12;
+    }
+    @include min($xxx-large) {
+      grid-column: 7/10;
+    }
+  }
+
+  .m-track-info__added-at {
+    margin: 0;
+    display: none;
+    @include min($xxx-large) {
+      display: unset;
+      grid-column: 10/12;
+    }
+  }
+
+  .m-track-info__duration {
+    margin: 0;
+    grid-column: 10/13;
+    @include min($s-medium) {
+      display: unset;
+      grid-column: 11/13;
+    }
+    @include min($large) {
+      grid-column: 12/13;
+    }
+  }
+}

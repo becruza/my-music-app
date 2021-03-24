@@ -1,0 +1,12 @@
+<section class="track-list">
+  <div class="track-list__playlist-preview">
+    <app-list-preview [playlist]="playlist"></app-list-preview>
+  </div>
+  <div *ngIf="tracks.length" class="track-list__track-header">
+    <app-track-info [track]="headerTrack"></app-track-info>
+  </div>
+
+  <div *ngFor="let track of tracks" class="track-list__track-info">
+    <app-track-info [track]="track"></app-track-info>
+  </div>
+</section>

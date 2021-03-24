@@ -14,9 +14,9 @@ export class UserPlaylistsComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.spotifyService.isLogedIn()) {
-      //TODO redirect login
+      window.location.href = '/';
     }
-    this.spotifyService.getPlaylists().subscribe(
+    this.spotifyService.getAllPlaylists().subscribe(
       (playlists) => (this.playlists = playlists),
       (error) => {
         console.error(error);

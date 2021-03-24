@@ -1,0 +1,46 @@
+<header class="m-navbar">
+  <div class="m-navbar__logo">
+    <a [routerLink]="['home']">
+      <app-logo></app-logo>
+    </a>
+  </div>
+  <input type="checkbox" id="menu-toggle" class="m-navbar__menu-toggle" />
+  <label for="menu-toggle" class="m-navbar__menu-toggle-label">
+    <div class="m-navbar__hamburger-menu">
+      <div class="m-navbar__hamburger-menu-bar"></div>
+      <div class="m-navbar__hamburger-menu-bar"></div>
+      <div class="m-navbar__hamburger-menu-bar"></div>
+    </div>
+  </label>
+  <ul class="m-navbar__menu">
+    <li class="m-navbar__menu-item">
+      <a
+        routerLinkActive="m-navbar__menu-item-link--active"
+        [routerLink]="['playlists', 'favorites']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="m-navbar__menu-item-link"
+        >Favorites</a
+      >
+    </li>
+    <li class="m-navbar__menu-item">
+      <a
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="m-navbar__menu-item-link--active"
+        [routerLink]="['playlists']"
+        class="m-navbar__menu-item-link"
+        >Playlists</a
+      >
+    </li>
+    <li *ngIf="userInfo" class="m-navbar__menu-item">
+      <a
+        [href]="userInfo.spotifyUrl"
+        target="_blank"
+        class="m-navbar__menu-item-link"
+        >{{ userInfo.displayName }}</a
+      >
+    </li>
+    <li *ngIf="isLoggedIn" class="m-navbar__menu-item" (click)="signOut()">
+      Sign out
+    </li>
+  </ul>
+</header>
